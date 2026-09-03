@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  /* Couleurs — ledger privé, encre profonde + or sourd */
+  --color-ink: #14161c;
+  --color-panel: #1c1f27;
+  --color-panel-raised: #22262f;
+  --color-line: #2c303a;
+  --color-line-soft: #262a33;
+
+  --color-ivory: #e8e6e0;
+  --color-slate: #8b8f98;
+  --color-slate-dim: #62666f;
+
+  --color-gold: #c9a227;
+  --color-gold-soft: #a98a2e;
+  --color-gold-dim: rgba(201, 162, 39, 0.14);
+
+  --color-gain: #4f9d69;
+  --color-gain-dim: rgba(79, 157, 105, 0.14);
+  --color-loss: #c1544a;
+  --color-loss-dim: rgba(193, 84, 74, 0.14);
+
+  /* Typographie */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Thème clair — remplace les jetons de couleur quand data-theme="clair" est posé sur <html> */
+[data-theme='clair'] {
+  --color-ink: #f5f3ee;
+  --color-panel: #ffffff;
+  --color-panel-raised: #f0ede6;
+  --color-line: #ded9cd;
+  --color-line-soft: #e8e4da;
+
+  --color-ivory: #1c1a16;
+  --color-slate: #6b6558;
+  --color-slate-dim: #928a76;
+
+  --color-gold: #a9821f;
+  --color-gold-soft: #8f6e1a;
+  --color-gold-dim: rgba(169, 130, 31, 0.12);
+
+  --color-gain: #2f7a49;
+  --color-gain-dim: rgba(47, 122, 73, 0.12);
+  --color-loss: #a83f35;
+  --color-loss-dim: rgba(168, 63, 53, 0.12);
+}
+
+:root {
+  color-scheme: dark;
+}
+[data-theme='clair'] {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-gold-dim);
+  color: var(--color-ivory);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate-dim);
+}
+
+@layer components {
+  .input-base {
+    background: var(--color-panel-raised);
+    border: 1px solid var(--color-line);
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-ivory);
+    width: 100%;
+  }
+  .input-base::placeholder {
+    color: var(--color-slate-dim);
+  }
+  .input-base:focus {
+    border-color: var(--color-gold-soft);
+    outline: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,9 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#14161C"/>
+  <!-- Arc doré, écho de la jauge Discipline du dashboard -->
+  <path d="M 128 340 A 176 176 0 1 1 384 340" fill="none" stroke="#C9A227" stroke-width="26" stroke-linecap="round"/>
+  <!-- Bougie de trading stylisée au centre -->
+  <line x1="256" y1="150" x2="256" y2="210" stroke="#E8E6E0" stroke-width="10" stroke-linecap="round"/>
+  <rect x="228" y="210" width="56" height="92" rx="6" fill="#E8E6E0"/>
+  <line x1="256" y1="302" x2="256" y2="352" stroke="#E8E6E0" stroke-width="10" stroke-linecap="round"/>
+</svg>
